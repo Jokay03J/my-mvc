@@ -1,0 +1,10 @@
+{
+    "routes": [
+        {
+            "path": "/",
+            "controller": "HomeController",
+            "action": "index",
+            "method": "GET"
+        }
+    ]
+}
