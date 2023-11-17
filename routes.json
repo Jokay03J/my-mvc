@@ -5,6 +5,12 @@
             "controller": "HomeController",
             "action": "index",
             "method": "GET"
+        },
+        {
+            "path": "/test",
+            "controller": "HomeController",
+            "action": "test",
+            "method": "GET"
         }
     ]
 }

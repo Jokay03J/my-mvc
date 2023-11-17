@@ -1,9 +1,4 @@
 <?php
-namespace Core\Models;
-
-use Core\Database\Database;
-
-
 class BaseModel
 {
     protected $table = "unknow";

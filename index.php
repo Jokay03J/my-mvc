@@ -8,6 +8,8 @@ if (file_exists("./config.json")) {
         $configResult[$key] = $value;
     }
     define("CONFIG", $configResult);
+    $root = str_replace("\\", "/", __DIR__);
+    define("ROOT", $root);
 } else {
     throw new Exception("You must have a config");
 }
@@ -15,9 +17,9 @@ if (file_exists("./config.json")) {
 //autoload
 spl_autoload_register(function ($class) {
     foreach (CONFIG["autoload"] as $key => $value) {
-        echo $value;
-        if (file_exists($value . "/" . $class . ".php")) {
-            include_once($value . "/" . $class . ".php");
+        if (file_exists(ROOT . "/" . $value . "/" . $class . ".php")) {
+            include_once ROOT . "/" . $value . "/" . $class . ".php";
+            break;
         }
     }
 });
