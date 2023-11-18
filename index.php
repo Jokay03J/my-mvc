@@ -1,5 +1,6 @@
 <?php
-
+// start session
+session_start();
 // loads config
 if (file_exists("./config.json")) {
     $routes = json_decode(file_get_contents("./config.json"), true);
