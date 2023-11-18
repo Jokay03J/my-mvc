@@ -2,7 +2,7 @@
 class BaseModel
 {
     protected $table = "unknow";
-    public $db;
+    public PDO $db;
 
     public function __construct()
     {
