@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <!-- Base layout for you views -->
     <?= $content ?>
 </body>
 
