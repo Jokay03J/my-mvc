@@ -7,13 +7,13 @@
             "method": "GET"
         },
         {
-            "path": "/test",
+            "path": "/form",
             "controller": "HomeController",
-            "action": "test",
+            "action": "form",
             "method": "GET"
         },
         {
-            "path": "/test",
+            "path": "/form",
             "controller": "HomeController",
             "action": "submit",
             "method": "POST"
