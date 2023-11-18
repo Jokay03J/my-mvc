@@ -1,6 +1,9 @@
 <?php
 class Database
 {
+    /**
+     * Connected database instance
+     */
     protected static $instance;
 
     private function getInstance()
@@ -23,6 +26,10 @@ class Database
         $this->getInstance();
     }
 
+    /**
+     * Get connected database instance
+     * Note: it will the same connected database instance across model
+     */
     function db()
     {
         return $this->instance;
