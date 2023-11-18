@@ -1,7 +1,13 @@
 <?php
 class BaseModel
 {
-    protected $table = "unknow";
+    /**
+     * Table name should be used to perform query
+     */
+    public $table = "unknow";
+    /**
+     * Intance of connected database
+     */
     public PDO $db;
 
     public function __construct()
