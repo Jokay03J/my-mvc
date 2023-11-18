@@ -6,14 +6,14 @@ class HomeController extends BaseController
         $this->view->render("home", ["user" => ["id" => 1, "username" => "jokay03J"]]);
     }
 
-    public function test(Request $request, Response $response)
+    public function form(Request $request, Response $response)
     {
         $this->view->render("form");
     }
 
     public function submit(Request $request, Response $response)
     {
-        $this->view->render("form", ["errors" => "sa marche !", "post" => $request->body, "files" => $request->files]);
+        $this->view->render("form", ["message" => "It work ! you can use files, query, and body on \$request for acces to it."]);
     }
 }
 ?>
