@@ -17,22 +17,30 @@ class Router
     public function findRoute()
     {
         foreach ($this->routes as $key => $route) {
-            if ($route["path"] === $_SERVER["REQUEST_URI"]) {
+            if ($route["path"] === $_SERVER["REQUEST_URI"] && $route["method"] === $_SERVER["REQUEST_METHOD"]) {
                 $controller = new $route["controller"];
                 $action = $route["action"];
                 if (method_exists($controller, $action)) {
-                    $controllerResult = call_user_func(array($controller, $action));
-                    if ($controllerResult instanceof Response) {
-                        $result = $controllerResult->sendResponse();
-                        echo $result;
-                    } else {
-                        echo $controllerResult;
-                    }
+                    $this->runController($controller, $action);
                     break;
                 } else {
                     throw new ErrorException("Method doesn't exist on controller");
                 }
             }
+
+        }
+    }
+
+    public function runController(mixed $controller, string $action)
+    {
+        $baseResponse = new Response();
+        $baseRequest = new Request();
+        $controllerResult = call_user_func(array($controller, $action), $baseRequest, $baseResponse);
+        if ($controllerResult instanceof Response) {
+            $result = $controllerResult->sendResponse();
+            echo $result;
+        } else {
+            echo $controllerResult;
         }
     }
 }

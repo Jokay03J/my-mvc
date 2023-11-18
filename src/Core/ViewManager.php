@@ -2,7 +2,7 @@
 class ViewManager
 {
     public $viewPath = "src/Views/";
-    public function render(string $view, $data = array())
+    public function render(string $view, array $data = array())
     {
         if (file_exists(ROOT . "/" . $this->viewPath . $view . ".php") || file_exists(ROOT . "/" . $this->viewPath . $view . ".html")) {
             extract($data);

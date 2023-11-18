@@ -5,13 +5,15 @@ class Response
     public $contentType = "text/plain";
     public mixed $data;
 
-    function __construct(mixed $data, array $options = array())
+    function __construct(array $options = array())
     {
-        $this->data = $data;
-        if (is_int($options["status"])) {
+        if (isset($options["data"])) {
+            $this->data = $options["data"];
+        }
+        if (isset($options["status"])) {
             $this->status = $options["status"];
         }
-        if (is_string($options["contentType"])) {
+        if (isset($options["contentType"])) {
             $this->contentType = $options["contentType"];
         }
     }
@@ -21,6 +23,11 @@ class Response
         $json = json_encode($data);
         $this->contentType = "application/json";
         $this->data = $json;
+    }
+
+    function setData(mixed $data)
+    {
+        $this->data = $data;
     }
 
     function sendResponse()
