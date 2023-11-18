@@ -11,6 +11,12 @@
             "controller": "HomeController",
             "action": "test",
             "method": "GET"
+        },
+        {
+            "path": "/test",
+            "controller": "HomeController",
+            "action": "submit",
+            "method": "POST"
         }
     ]
 }
